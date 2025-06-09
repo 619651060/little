@@ -206,7 +206,8 @@ default: &default
     - 新加坡-故转
     - 韩国-故转
     - 美国-故转
-    - 英国-故转
+    - 德国-故转
+    - 欧洲-故转
     - 其他-故转
     - 拒绝
 
@@ -369,6 +370,25 @@ proxy-groups:
     interval: 300
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
 
+  # 德国组
+  - name: 德国-故转
+    type: fallback
+    interval: 300
+    lazy: false
+    proxies:
+      - 德国-手动
+      - 德国-自动
+  - name: 德国-手动
+    type: select
+    include-all: true
+    filter: "(?=.*(德国|DE|Germany|黑森|法兰克福).*$"
+  - name: 欧洲-自动
+    type: url-test
+    include-all: true
+    tolerance: 50
+    interval: 300
+    filter: "(?=.*(俄罗斯|西伯利亚|德国|法国|斯洛伐克|芬兰|法兰克福|英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$"
+
   # 英国组
   - name: 英国-故转
     type: fallback
@@ -387,6 +407,25 @@ proxy-groups:
     tolerance: 50
     interval: 300
     filter: "(?=.*(英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$"
+
+  # 欧洲组
+  - name: 欧洲-故转
+    type: fallback
+    interval: 300
+    lazy: false
+    proxies:
+      - 欧洲-手动
+      - 欧洲-自动
+  - name: 欧洲-手动
+    type: select
+    include-all: true
+    filter: "(?=.*(俄罗斯|西伯利亚|德国|法国|斯洛伐克|芬兰|法兰克福|英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$"
+  - name: 欧洲-自动
+    type: url-test
+    include-all: true
+    tolerance: 50
+    interval: 300
+    filter: "(?=.*(俄罗斯|西伯利亚|德国|法国|斯洛伐克|芬兰|法兰克福|英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$"
 
   # 其他组
   - name: 其他-故转
