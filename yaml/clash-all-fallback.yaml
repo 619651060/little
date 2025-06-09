@@ -206,8 +206,6 @@ default: &default
     - 新加坡-故转
     - 韩国-故转
     - 美国-故转
-    - 德国-故转
-    - 英国-故转
     - 欧洲-故转
     - 其他-故转
     - 拒绝
@@ -371,44 +369,6 @@ proxy-groups:
     interval: 300
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
 
-  # 德国组
-  - name: 德国-故转
-    type: fallback
-    interval: 300
-    lazy: false
-    proxies:
-      - 德国-手动
-      - 德国-自动
-  - name: 德国-手动
-    type: select
-    include-all: true
-    filter: "(?=.*(德国|DE|Germany|黑森|法兰克福).*$"
-  - name: 欧洲-自动
-    type: url-test
-    include-all: true
-    tolerance: 50
-    interval: 300
-    filter: "(?=.*(俄罗斯|西伯利亚|德国|法国|斯洛伐克|芬兰|法兰克福|英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$"
-
-  # 英国组
-  - name: 英国-故转
-    type: fallback
-    interval: 300
-    lazy: false
-    proxies:
-      - 英国-手动
-      - 英国-自动
-  - name: 英国-手动
-    type: select
-    include-all: true
-    filter: "(?=.*(英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$"
-  - name: 英国-自动
-    type: url-test
-    include-all: true
-    tolerance: 50
-    interval: 300
-    filter: "(?=.*(英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$"
-
   # 欧洲组
   - name: 欧洲-故转
     type: fallback
@@ -420,13 +380,13 @@ proxy-groups:
   - name: 欧洲-手动
     type: select
     include-all: true
-    filter: "(?=.*(俄罗斯|西伯利亚|德国|法国|斯洛伐克|芬兰|法兰克福|英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$"
+    filter: "(?=.*(德国|法国|芬兰|俄罗斯|英国|斯洛伐克|伦罗马尼亚|意大利|United Kingdom|🇬🇧|London)).*$"
   - name: 欧洲-自动
     type: url-test
     include-all: true
     tolerance: 50
     interval: 300
-    filter: "(?=.*(俄罗斯|西伯利亚|德国|法国|斯洛伐克|芬兰|法兰克福|英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$"
+    filter: "(?=.*(德国|法国|芬兰|俄罗斯|英国|斯洛伐克|伦罗马尼亚|意大利|United Kingdom|🇬🇧|London)).*$"
 
   # 其他组
   - name: 其他-故转
@@ -483,7 +443,7 @@ rules:
   - RULE-SET,EA / Domain,Game
   - RULE-SET,Blizzard / Domain,Game
   - RULE-SET,UBI / Domain,Game
-  - RULE-SET,PlayStation / Domain,Game
+  - RULE-SET,Sony / Domain,Game
   - RULE-SET,Nintend / Domain,Game
   - RULE-SET,Google / Domain,Google
   - RULE-SET,Google / IP,Google,no-resolve
@@ -534,7 +494,7 @@ rule-providers:
   EA / Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/EA/EA.list"}
   Blizzard / Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Blizzard/Blizzard.list"}
   UBI / Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/UBI/UBI.list"}
-  PlayStation / Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/PlayStation/PlayStation.list"}
+  Sony / Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Sony/Sony.list"}
   Nintend / Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Nintendo/Nintendo.list"}
   Google / Domain: {<<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
   Google / IP: {<<: *ip, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"}
